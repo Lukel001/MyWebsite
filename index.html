@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>King Ducky | 2024</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #00c3ff, #ff9900);
+            color: #f4f4f9;
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Navbar */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        nav a {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: #ffcc00;
+            transition: color 0.3s, transform 0.3s, border-bottom 0.3s;
+            padding: 0.5rem 0;
+            border-bottom: 3px solid transparent;
+        }
+        nav a:hover {
+            color: #ffffff;
+            transform: scale(1.1);
+            border-bottom: 3px solid #ffffff;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            color: #ffcc00;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('https://yourimagepath.com/duck_background.jpg') no-repeat center center/cover;
+            position: relative;
+            animation: heroFadeIn 2s ease;
+        }
+        .hero:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .hero h1 {
+            font-size: 4rem;
+            color: #fff;
+            z-index: 10;
+            animation: slideIn 1s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .hero .cool-animation {
+            font-size: 2rem;
+            padding: 1rem 2rem;
+            border: 3px solid #fff;
+            border-radius: 50px;
+            margin-top: 1rem;
+            display: inline-block;
+            animation: spin 20s infinite linear;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Section Styles */
+        .container {
+            padding: 4rem 2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin: 3rem 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .container:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+        h2 {
+            font-size: 2.5rem;
+            color: #ff6600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        p {
+            font-size: 1.3rem;
+            color: #fff;
+            text-align: center;
+            margin: 0 0 1rem;
+        }
+
+        /* Blog Section */
+        #blog {
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffcc00;
+            padding: 3rem;
+            text-align: center;
+        }
+        #blog h2 {
+            margin-bottom: 2rem;
+        }
+        #blog p {
+            margin-bottom: 2rem;
+        }
+        #blog button {
+            background-color: #ffcc00;
+            color: #000;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        #blog button:hover {
+            background-color: #fff;
+            color: #000;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Interactive Button */
+        .btn {
+            background-color: #ff9900;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #ffcc00;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Get to Know Me Game */
+        #getToKnowMe {
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffcc00;
+            padding: 2rem;
+            margin: 2rem auto;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        #getToKnowMe p {
+            font-size: 1.2rem;
+        }
+        #getToKnowMe button {
+            background-color: #ffcc00;
+            color: #000;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        #getToKnowMe button:hover {
+            background-color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            nav a {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* AI Recommendation Section */
+        #recommendations {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        #recommendations h2 {
+            color: #ff6600;
+        }
+        #recommendations ul {
+            list-style: none;
+            padding: 0;
+        }
+        #recommendations li {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">King Ducky</div>
+        <div>
+            <a href="#about">About Me</a>
+            <a href="#blog">Blog</a>
+            <a href="#recommendations">Recommendations</a>
+            <a href="#getToKnowMe">Get to Know Me</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Welcome to My World!</h1>
+        <div class="cool-animation">🦆 Quack! 🦆</div>
+    </header>
+
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <p>Hi, I'm Luke Giordano! I'm passionate about animals, coding, gaming, and nature.</p>
+        <p>Here are a few fun facts about me:</p>
+        <ul>
+            <li>I have two adorable turtles named Gary and NayNay.</li>
+            <li>I love watching wildlife documentaries to learn about our planet.</li>
+            <li>My favorite video game genres are adventure and simulation, and I enjoy playing games like Roblox and Fortnite.</li>
+            <li>I enjoy chilling outdoors, surrounded by nature's beauty.</li>
+        </ul>
+    </section>
+
+    <section id="blog" class="container">
+        <h2>Blog</h2>
+        <p>Check out my latest posts about animals, nature, and gaming!</p>
+        <button>Read My Blog</button>
+    </section>
+
+    <section id="recommendations" class="container">
+        <h2>Recommendations</h2>
+        <p>Here are some of my favorite animal-related books, games, and TV shows:</p>
+        <ul>
+            <li>Book: "The Hidden Life of Trees" by Peter Wohlleben</li>
+            <li>Game: "Animal Crossing: New Horizons"</li>
+            <li>TV Show: "Planet Earth II"</li>
+        </ul>
+    </section>
+
+    <section id="getToKnowMe">
+        <h2>Get to Know Me!</h2>
+        <p>Want to learn more about me? Let's play a quick game!</p>
+        <button>Start the Game</button>
+    </section>
+
+   <footer>
+    <p>&copy; 2024 King Ducky Productions! Made By: Luke Giordano!</p>
+    <p>Ty For Being Here! Hehe!</p>
+</footer>
+
+</body>
+</html>
+
