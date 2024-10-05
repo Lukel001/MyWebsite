@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -261,6 +261,7 @@
             <a href="#about">About Me</a>
             <a href="#blog">Blog</a>
             <a href="#getToKnowMe">Get to Know Me</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
@@ -271,40 +272,43 @@
 
     <section class="container" id="about">
         <h2>About Me</h2>
-        <p>Hi there! I'm Luke, a coding enthusiast, animal lover, and gamer. I enjoy exploring the world of wildlife and nature, finding inspiration in every adventure.</p>
-        <p>My pets, Gary and NayNay, two wonderful turtles, bring me endless joy and serve as my motivation to blend my passions for coding, animals, and gaming.</p>
+        <p>I'm Luke, a coding enthusiast who loves animals, gaming, and nature! My journey with my turtles, Gary and NayNay, inspires my projects.</p>
     </section>
 
     <section id="specialNote">
         <h3>Special Note</h3>
-        <p>Enter the special code below to reveal a surprise!</p>
-        <input type="text" id="codeInput" placeholder="Enter code...">
-        <button onclick="checkCode()">Submit</button>
-        <p id="noteMessage"></p>
+        <input type="text" id="specialInput" placeholder="Enter the special code...">
+        <button onclick="checkSpecialCode()">Submit</button>
+        <p id="specialMessage" style="color: #ffcc00; margin-top: 1rem;"></p>
     </section>
 
     <section id="blog">
-        <h2>Blog</h2>
-        <p>Check out my latest posts about coding, wildlife, and gaming!</p>
-        <button onclick="location.href='blog.html'">Read More</button>
+        <h2>My Blog</h2>
+        <p>Check out my latest posts on animals, coding, and gaming!</p>
+        <button>Read My Blog</button>
     </section>
 
     <section id="getToKnowMe">
         <h2>Get to Know Me Game</h2>
-        <p>Join me for a fun game where we can learn more about each other! It's a great way to connect!</p>
-        <button onclick="location.href='game.html'">Play Now!</button>
+        <p>Play the game and learn more about me!</p>
+        <button>Play Now</button>
     </section>
 
+    <footer>
+        <p>&copy; 2024 King Ducky. All Rights Reserved.</p>
+    </footer>
+
     <script>
-        function checkCode() {
-            const codeInput = document.getElementById("codeInput").value;
-            const noteMessage = document.getElementById("noteMessage");
-            if (codeInput === "Timmy238") {
-                noteMessage.textContent = "🎉 Congratulations! You've unlocked the special surprise! 🦆";
-                noteMessage.style.color = "#ffcc00"; // Change text color
+        function checkSpecialCode() {
+            const input = document.getElementById('specialInput').value;
+            const message = document.getElementById('specialMessage');
+
+            if (input === 'AboutThatDuck') {
+                message.textContent = 'Quack-tastic! You found the special code!';
+                message.style.color = '#00ff00'; // Green for correct code
             } else {
-                noteMessage.textContent = "🚫 Incorrect code. Try again!";
-                noteMessage.style.color = "#ff0000"; // Change text color
+                message.textContent = 'Oops! Try again.';
+                message.style.color = '#ff0000'; // Red for incorrect code
             }
         }
     </script>
