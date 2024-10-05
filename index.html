@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>King Ducky | 2024</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <meta name="description" content="King Ducky's personal website, where animals, coding, gaming, and nature come together. Check out my blog, recommendations, and fun games!">
+
     <style>
         /* Global Styles */
         * {
@@ -68,6 +71,7 @@
             background: url('https://yourimagepath.com/duck_background.jpg') no-repeat center center/cover;
             position: relative;
             animation: heroFadeIn 2s ease;
+            background-attachment: fixed;
         }
         .hero:after {
             content: '';
@@ -102,6 +106,33 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* Reusable Button Styles */
+        .btn {
+            background-color: #ff9900;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #ffcc00;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        .btn-primary {
+            background-color: #ffcc00;
+            color: #000;
+        }
+        .btn-primary:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
         /* Section Styles */
         .container {
             padding: 4rem 2rem;
@@ -131,6 +162,54 @@
             color: #fff;
             text-align: center;
             margin: 0 0 1rem;
+        }
+
+        /* Special Note Section */
+        #specialNote {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin: 3rem auto;
+            max-width: 600px; /* Added max-width for better spacing */
+        }
+        #specialNote h3 {
+            color: #ffcc00;
+            margin-bottom: 1rem;
+        }
+        #specialNote input {
+            padding: 0.8rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 2px solid #ff9900;
+            margin-bottom: 1rem;
+        }
+        #specialNote button {
+            background-color: #ff9900;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: pulse 1.5s infinite; /* Added pulse animation */
+        }
+        #specialNote button:hover {
+            background-color: #ffcc00;
+            color: #000;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Pulse Animation for Button */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
         }
 
         /* Blog Section */
@@ -163,95 +242,15 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
 
-        /* Interactive Button */
-        .btn {
-            background-color: #ff9900;
-            color: #fff;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            display: inline-block;
-        }
-        .btn:hover {
-            background-color: #ffcc00;
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        }
-
         /* Get to Know Me Game */
         #getToKnowMe {
             background: rgba(0, 0, 0, 0.8);
             color: #ffcc00;
-            padding: 2rem;
-            margin: 2rem auto;
+            padding: 3rem;
             text-align: center;
             border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-        #getToKnowMe p {
-            font-size: 1.2rem;
-        }
-        #getToKnowMe button {
-            background-color: #ffcc00;
-            color: #000;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        #getToKnowMe button:hover {
-            background-color: #fff;
-            transform: scale(1.05);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-            nav a {
-                font-size: 1rem;
-            }
-            h2 {
-                font-size: 2rem;
-            }
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
-            color: #fff;
-            padding: 2rem;
-            text-align: center;
-            transition: background-color 0.3s;
-        }
-        footer p {
-            margin: 0.5rem 0;
-        }
-
-        /* AI Recommendation Section */
-        #recommendations {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 3rem 0;
-        }
-        #recommendations h2 {
-            color: #ff6600;
-        }
-        #recommendations ul {
-            list-style: none;
-            padding: 0;
-        }
-        #recommendations li {
-            margin: 1rem 0;
-            font-size: 1.2rem;
+            margin: 3rem auto;
+            max-width: 600px;
         }
     </style>
 </head>
@@ -261,53 +260,53 @@
         <div>
             <a href="#about">About Me</a>
             <a href="#blog">Blog</a>
-            <a href="#recommendations">Recommendations</a>
             <a href="#getToKnowMe">Get to Know Me</a>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>Are You Ready To Dive into the world of King Ducky?</h1>
-        <div class="cool-animation">🦆 Quack! 🦆</div>
+        <h1>Welcome to King Ducky's World!</h1>
+        <div class="cool-animation">🐥✨</div>
     </header>
 
-    <section id="about" class="container">
+    <section class="container" id="about">
         <h2>About Me</h2>
-        <p>Hi, I'm King Ducky! I'm passionate about animals, coding, gaming, and nature.</p>
-        <p>Here are a few fun facts about me:</p>
-        <ul>
-            <li>I have two adorable turtles named Gary and NayNay.</li>
-            <li>I love watching wildlife documentaries to learn about our planet.</li>
-            <li>My favorite video game genres are adventure and simulation, and I enjoy playing games like Roblox and Fortnite.</li>
-            <li>I enjoy chilling outdoors, surrounded by nature's beauty.</li>
-        </ul>
+        <p>Hi there! I'm Luke, a coding enthusiast, animal lover, and gamer. I enjoy exploring the world of wildlife and nature, finding inspiration in every adventure.</p>
+        <p>My pets, Gary and NayNay, two wonderful turtles, bring me endless joy and serve as my motivation to blend my passions for coding, animals, and gaming.</p>
     </section>
 
-    <section id="blog" class="container">
+    <section id="specialNote">
+        <h3>Special Note</h3>
+        <p>Enter the special code below to reveal a surprise!</p>
+        <input type="text" id="codeInput" placeholder="Enter code...">
+        <button onclick="checkCode()">Submit</button>
+        <p id="noteMessage"></p>
+    </section>
+
+    <section id="blog">
         <h2>Blog</h2>
-        <p>Check out my latest posts about animals, nature, and gaming!</p>
-        <button>Read My Blog</button>
-    </section>
-
-    <section id="recommendations" class="container">
-        <h2>Recommendations</h2>
-        <p>Here are some of my favorite animal-related games, and TV shows:</p>
-        <ul>
-            <li>Game: "Animal Crossing: New Horizons"</li>
-            <li>TV Show: "Chicago PD, FD!"</li>
-        </ul>
+        <p>Check out my latest posts about coding, wildlife, and gaming!</p>
+        <button onclick="location.href='blog.html'">Read More</button>
     </section>
 
     <section id="getToKnowMe">
-        <h2>Get to Know Me!</h2>
-        <p>Want to learn more about me? Let's play a quick game!</p>
-        <button>Start the Game</button>
+        <h2>Get to Know Me Game</h2>
+        <p>Join me for a fun game where we can learn more about each other! It's a great way to connect!</p>
+        <button onclick="location.href='game.html'">Play Now!</button>
     </section>
 
-   <footer>
-    <p>&copy; 2024 King Ducky Productions | Crafted With ❤️ By: King Ducky!</p>
-    <p>Where Did You Come From? Hehe...</p>
-</footer>
-
+    <script>
+        function checkCode() {
+            const codeInput = document.getElementById("codeInput").value;
+            const noteMessage = document.getElementById("noteMessage");
+            if (codeInput === "Ducky123") {
+                noteMessage.textContent = "🎉 Congratulations! You've unlocked the special surprise! 🦆";
+                noteMessage.style.color = "#ffcc00"; // Change text color
+            } else {
+                noteMessage.textContent = "🚫 Incorrect code. Try again!";
+                noteMessage.style.color = "#ff0000"; // Change text color
+            }
+        }
+    </script>
 </body>
 </html>
