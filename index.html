@@ -6,29 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>King Ducky | 2024</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    
-    <meta name="description" content="King Ducky's personal website, where animals, coding, gaming, and nature come together. Check out my blog, recommendations, and fun games!">
 
     <style>
         /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #00c3ff, #ff9900);
             color: #f4f4f9;
-            font-size: 16px;
             line-height: 1.6;
-            overflow-x: hidden;
             animation: fadeIn 1s ease-in;
+            overflow-x: hidden;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         /* Navbar */
         nav {
@@ -44,22 +34,15 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
         nav a {
+            color: #ffcc00;
+            padding: 0.5rem 1rem;
             font-size: 1.2rem;
             text-transform: uppercase;
-            color: #ffcc00;
+            text-decoration: none;
             transition: color 0.3s, transform 0.3s, border-bottom 0.3s;
-            padding: 0.5rem 0;
             border-bottom: 3px solid transparent;
         }
-        nav a:hover {
-            color: #ffffff;
-            transform: scale(1.1);
-            border-bottom: 3px solid #ffffff;
-        }
-        nav .logo {
-            font-size: 1.5rem;
-            color: #ffcc00;
-        }
+        nav a:hover { color: #ffffff; transform: scale(1.1); border-bottom: 3px solid #ffffff; }
 
         /* Hero Section */
         .hero {
@@ -70,17 +53,6 @@
             text-align: center;
             background: url('https://yourimagepath.com/duck_background.jpg') no-repeat center center/cover;
             position: relative;
-            animation: heroFadeIn 2s ease;
-            background-attachment: fixed;
-        }
-        .hero:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
         }
         .hero h1 {
             font-size: 4rem;
@@ -88,25 +60,22 @@
             z-index: 10;
             animation: slideIn 1s ease-out;
         }
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .hero .cool-animation {
-            font-size: 2rem;
-            padding: 1rem 2rem;
-            border: 3px solid #fff;
-            border-radius: 50px;
-            margin-top: 1rem;
-            display: inline-block;
-            animation: spin 20s infinite linear;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0); }
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-        /* Reusable Button Styles */
+        /* Section Styles */
+        .container {
+            padding: 4rem 2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin: 3rem auto;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        h2 { font-size: 2.5rem; color: #ff6600; margin-bottom: 1.5rem; }
+        p { font-size: 1.3rem; color: #fff; margin-bottom: 1rem; }
+
+        /* Button Styles */
         .btn {
             background-color: #ff9900;
             color: #fff;
@@ -114,143 +83,19 @@
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
             font-size: 1.1rem;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            display: inline-block;
-        }
-        .btn:hover {
-            background-color: #ffcc00;
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        }
-        .btn-primary {
-            background-color: #ffcc00;
-            color: #000;
-        }
-        .btn-primary:hover {
-            background-color: #fff;
-            color: #000;
-        }
-
-        /* Section Styles */
-        .container {
-            padding: 4rem 2rem;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            margin: 3rem 0;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s, transform 0.3s;
         }
-        .container:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
-        }
-        h2 {
-            font-size: 2.5rem;
-            color: #ff6600;
-            margin-bottom: 1.5rem;
+        .btn:hover { background-color: #ffcc00; transform: scale(1.05); }
+
+        /* Footer Styles */
+        footer {
             text-align: center;
-            animation: bounce 1s infinite alternate;
-        }
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-10px); }
-        }
-        p {
-            font-size: 1.3rem;
+            padding: 2rem 0;
+            background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
-            text-align: center;
-            margin: 0 0 1rem;
-        }
-
-        /* Special Note Section */
-        #specialNote {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            margin: 3rem auto;
-            max-width: 600px; /* Added max-width for better spacing */
-        }
-        #specialNote h3 {
-            color: #ffcc00;
-            margin-bottom: 1rem;
-        }
-        #specialNote input {
-            padding: 0.8rem;
-            font-size: 1rem;
-            border-radius: 5px;
-            border: 2px solid #ff9900;
-            margin-bottom: 1rem;
-        }
-        #specialNote button {
-            background-color: #ff9900;
-            color: #fff;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
-            animation: pulse 1.5s infinite; /* Added pulse animation */
-        }
-        #specialNote button:hover {
-            background-color: #ffcc00;
-            color: #000;
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Pulse Animation for Button */
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        /* Blog Section */
-        #blog {
-            background: rgba(0, 0, 0, 0.7);
-            color: #ffcc00;
-            padding: 3rem;
-            text-align: center;
-        }
-        #blog h2 {
-            margin-bottom: 2rem;
-        }
-        #blog p {
-            margin-bottom: 2rem;
-        }
-        #blog button {
-            background-color: #ffcc00;
-            color: #000;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        #blog button:hover {
-            background-color: #fff;
-            color: #000;
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Get to Know Me Game */
-        #getToKnowMe {
-            background: rgba(0, 0, 0, 0.8);
-            color: #ffcc00;
-            padding: 3rem;
-            text-align: center;
-            border-radius: 12px;
-            margin: 3rem auto;
-            max-width: 600px;
+            position: relative;
         }
     </style>
 </head>
@@ -259,7 +104,7 @@
         <div class="logo">King Ducky</div>
         <div>
             <a href="#about">About Me</a>
-            <a href="#blog">Blog</a>
+            <a href="#devPortfolio">Dev Portfolio</a>
             <a href="#getToKnowMe">Get to Know Me</a>
             <a href="#contact">Contact</a>
         </div>
@@ -267,49 +112,34 @@
 
     <header class="hero">
         <h1>Welcome to King Ducky's World!</h1>
-        <div class="cool-animation">🐥✨</div>
     </header>
 
     <section class="container" id="about">
         <h2>About Me</h2>
-        <p>I'm Luke, a coding enthusiast who loves animals, gaming, and nature! My journey with my turtles, Gary and NayNay, inspires my projects.</p>
+        <p>Hello,
+            My name is Luke, and I am an avid enthusiast of coding. I also have a passion for animals and gaming. I have three cats and two turtles.</p>
     </section>
 
-    <section id="specialNote">
-        <h3>Special Note</h3>
-        <input type="text" id="specialInput" placeholder="Enter the special code...">
-        <button onclick="checkSpecialCode()">Submit</button>
-        <p id="specialMessage" style="color: #ffcc00; margin-top: 1rem;"></p>
+    <section class="container" id="devPortfolio">
+        <h2>Development Portfolio</h2>
+        <p>With over three years of experience in coding, I am proficient in multiple programming languages. My fluency includes HTML, JavaScript, C++, Python, and Lua.</p>
+        <p>Should you have any inquiries, please do not hesitate to contact me via Discord at “itskingducky” or email at “ThatCodingDuck@Gmail.com”.</p>
     </section>
 
-    <section id="blog">
-        <h2>My Blog</h2>
-        <p>Check out my latest posts on animals, coding, and gaming!</p>
-        <button>Read My Blog</button>
+    <section class="container" id="getToKnowMe">
+        <h2>Get to Know Me</h2>
+        <p>Interested in learning more about me and my interests? Take this engaging quiz to delve deeper into my passions. Stay tuned for its release!
+        </p>
+        <button class="btn" onclick="startQuiz()">Coming Soon!</button>
     </section>
 
-    <section id="getToKnowMe">
-        <h2>Get to Know Me Game</h2>
-        <p>Play the game and learn more about me!</p>
-        <button>Play Now</button>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 King Ducky. All Rights Reserved.</p>
+    <footer class="container" id="contact">
+        <p>&copy; 2024 King Ducky Productions. All rights reserved.</p>
     </footer>
 
     <script>
-        function checkSpecialCode() {
-            const input = document.getElementById('specialInput').value;
-            const message = document.getElementById('specialMessage');
-
-            if (input === 'AboutThatDuck') {
-                message.textContent = 'Quack-tastic! You found the special code!';
-                message.style.color = '#00ff00'; // Green for correct code
-            } else {
-                message.textContent = 'Oops! Try again.';
-                message.style.color = '#ff0000'; // Red for incorrect code
-            }
+        function startQuiz() {
+            alert("Quiz feature coming soon!");
         }
     </script>
 </body>
