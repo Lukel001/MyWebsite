@@ -6,38 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AboutThatDuck.Com</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
     <style>
-        /* Global Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0037ff, #ffb300);
+            background: linear-gradient(135deg, #bf00ff, #ff9d00);
             color: #f4f4f9;
             line-height: 1.6;
-            animation: fadeIn 1s ease-in;
             overflow-x: hidden;
         }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* Sidebar Navigation */
         .sidebar {
             position: fixed;
             top: 0;
             left: 0;
             height: 100%;
-            width: 200px;
+            width: 250px;
             background: rgba(0, 0, 0, 0.9);
             display: flex;
             flex-direction: column;
             align-items: center;
             padding-top: 2rem;
             transform: translateX(-100%);
-            transition: transform 0.3s ease;
+            transition: transform 0.5s ease-in-out;
+            z-index: 200;
         }
-        .sidebar.show {
-            transform: translateX(0);
-        }
+        .sidebar.show { transform: translateX(0); }
         .sidebar .logo {
             font-size: 1.8rem;
             color: #ffcc00;
@@ -53,40 +46,27 @@
             width: 100%;
             text-align: center;
             transition: background 0.3s, color 0.3s;
-            opacity: 0;
-            transform: translateX(-20px);
-            animation: slideInLinks 0.3s ease forwards;
         }
-        .sidebar.show a:nth-child(2) { animation-delay: 0.1s; }
-        .sidebar.show a:nth-child(3) { animation-delay: 0.2s; }
-
-        /* Link Hover Effect */
         .sidebar a:hover {
             background: #ff6600;
             color: #ffffff;
         }
-
-        /* Slide In Animation for Links */
-        @keyframes slideInLinks {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        /* Toggle Button for Sidebar */
         .toggle-btn {
             position: fixed;
-            top: 1.5rem;
-            left: 1.5rem;
+            top: 1rem;
+            left: 1rem;
             background: #ffcc00;
             color: #000;
             font-size: 1.2rem;
             padding: 0.5rem 1rem;
             cursor: pointer;
             border-radius: 5px;
-            z-index: 100;
+            z-index: 300;
+            transition: transform 0.3s ease-in-out;
         }
-
-        /* Hero Section */
+        .toggle-btn:hover {
+            transform: scale(1.1);
+        }
         .hero {
             height: 100vh;
             display: flex;
@@ -94,41 +74,23 @@
             align-items: center;
             text-align: center;
             background: url('https://yourimagepath.com/duck_background.jpg') no-repeat center center/cover;
-            padding: 1rem;
+            padding: 2rem;
         }
-        .hero h1 {
-            font-size: 3rem;
-            color: #fff;
-            z-index: 10;
-            animation: slideIn 1s ease-out;
-        }
-        @keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-        /* Section Styles */
+        .hero h1 { font-size: 3rem; max-width: 90%; color: #fff; animation: fadeIn 1s ease-in-out; }
         .container {
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             margin: 3rem auto;
-            max-width: 800px;
+            max-width: 90%;
             padding: 2rem;
             text-align: center;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: scaleUp 0.5s ease forwards;
-            transform-origin: center;
+            will-change: transform;
         }
-        .container:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-        }
-        @keyframes scaleUp {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        h2 { font-size: 2.5rem; color: #ff6600; margin-bottom: 1.5rem; }
-        p { font-size: 1.3rem; color: #fff; margin-bottom: 1rem; }
-
-        /* Button Styles */
+        .container:hover { transform: scale(1.05); }
+        h2 { font-size: 2.2rem; color: #ff6600; margin-bottom: 1.2rem; }
+        p { font-size: 1.2rem; color: #fff; margin-bottom: 1rem; text-align: justify; }
         .btn {
             background-color: #ff9900;
             color: #fff;
@@ -137,95 +99,74 @@
             border-radius: 50px;
             cursor: pointer;
             font-size: 1.1rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s, transform 0.3s;
         }
         .btn:hover { background-color: #ffcc00; transform: scale(1.05); }
-
-        /* Footer Styles */
         footer {
             text-align: center;
             padding: 2rem 0;
             background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
         }
-
-        /* Responsive Adjustments */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; padding: 0 1rem; }
-            .container { padding: 2rem 1rem; margin: 1.5rem auto; }
-            h2 { font-size: 2rem; }
-            p { font-size: 1.1rem; }
-            .btn { padding: 0.8rem 1.5rem; font-size: 1rem; }
+            .hero h1 { font-size: 2rem; }
+            .container { padding: 1.5rem; }
+            h2 { font-size: 1.8rem; }
+            p { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar Navigation -->
+    <div class="toggle-btn" onclick="toggleSidebar()">☰ Menu</div>
     <div class="sidebar" id="sidebar">
         <div class="logo">King Ducky</div>
-        <a href="#about">About Me</a>
-        <a href="#devPortfolio">Development Portfolio</a>
-        <a href="#Wanttolearnmore">Want to learn more?</a>
+        <a href="#about" onclick="closeSidebar()">About Me</a>
+        <a href="#devPortfolio" onclick="closeSidebar()">Development Portfolio</a>
+        <a href="#Wanttolearnmore" onclick="closeSidebar()">Want to learn more?</a>
     </div>
-
-    <!-- Toggle Button -->
-    <div class="toggle-btn" onclick="toggleSidebar()">☰ Menu</div>
-
     <header class="hero">
-        <h1>Welcome to King Ducky's World!
-        Shoutout to TTVBITE1/Blake
-        </h1>
+        <h1>Welcome to King Ducky’s World! Here, you’ll find all the coolest stuff about coding and the tech world!</h1>
     </header>
-
     <section class="container" id="about">
         <h2>About Me</h2>
-        <p></p>Hello! My name is Luke, and I am a passionate enthusiast of all things coding, technology, animals, and gaming. My journey with coding has been fueled by a desire to explore innovative ways to create, simplify, and enhance the digital experience. Whether diving into new programming languages or crafting engaging projects, I find endless excitement in the possibilities of technology.
+        <p>Hello! My name is Luke, and I’m a passionate enthusiast of coding, technology, animals, and gaming. Ever since I was a child, I’ve been fascinated by how technology shapes our world, constantly evolving and pushing the boundaries of what’s possible. I love diving into various programming languages, experimenting with new frameworks, and building projects that challenge my problem-solving skills.
 
-        Beyond coding, I have a deep love for animals, sharing my life with three playful cats and two adorable turtles. Gaming is another cornerstone of my world—offering both relaxation and inspiration for my creative endeavors. Together, these passions shape the vibrant, tech-driven life I love.
+Beyond coding, I have a deep appreciation for animals and their incredible diversity. Whether it’s learning about different species, supporting wildlife conservation efforts, or simply spending time with pets, animals have always held a special place in my heart. Gaming is another major passion of mine. I enjoy immersing myself in captivating worlds, unraveling intricate storylines, and testing my strategic thinking through diverse genres. Whether it’s single-player adventures, competitive multiplayer matches, or indie games with unique mechanics, gaming brings people together and fosters creativity.
+
+Another thing I absolutely adore is Disney. From the enchanting movies and iconic characters to the awe-inspiring theme parks, Disney has always been a source of immense joy and inspiration for me. Whether it’s savoring classic animated films, visiting Disney parks, or simply embracing the nostalgia of beloved stories, Disney is an integral part of my life.
+
+Furthermore, I have a profound appreciation for Disney Cruise Line and diner cruises in general. There’s something truly magical about embarking on a beautifully themed ship, experiencing world-class entertainment, and indulging in delectable cuisine while taking in breathtaking ocean views. It’s the perfect blend of adventure, relaxation, and enchantment, and I cherish every moment of it.
+
+Technology, animals, gaming, Disney, and cruises are all interconnected in my life, shaping my interests and inspiring me to continue learning, exploring, and creating.</p>
     </section>
-
     <section class="container" id="devPortfolio">
         <h2>Development Portfolio</h2>
-        <p>With over three years of professional coding experience, I possess proficiency in a diverse range of programming languages. My expertise encompasses HTML, JavaScript, C++, CSS, Python, and Lua.
-        </p>
-        <p>Should you have any inquiries, please do not hesitate to contact me via email at “ThatCodingDuck@Gmail.com”.</p>
-    </section>
+        <p>With over three years of professional coding experience, I’ve had the privilege of working on a diverse range of projects that have not only honed my skills but also deepened my passion for software development. From developing efficient algorithms and optimizing code to designing user-friendly applications and implementing cutting-edge technologies, I’ve consistently challenged myself and pushed the boundaries of what I can achieve.
 
+Throughout my time, I’ve had the opportunity to work with a wide variety of programming languages, frameworks, and tools, which has allowed me to continuously expand my knowledge and adapt to the ever-evolving tech landscape. I’m particularly drawn to front-end, back-end, and full-stack development, and I take great pride in writing clean, maintainable, and efficient code.
+
+Beyond my technical expertise, I’m also a strong collaborator and a contributor to impactful projects. I believe in fostering a positive and collaborative work environment, and I’m always eager to learn and grow as a professional. I’m excited about the future of software development and look forward to continuing to refine my skills and create meaningful solutions in this ever-expanding field.</p>
+    </section>
     <section class="container" id="Wanttolearnmore">
         <h2>Want to learn more?</h2>
-        <p>Are you interested in learning more about coding or testing your coding knowledge?
-            Take this engaging quiz to delve deeper into the world of coding! Stay tuned for its release!</p>
+        <p>Are you interested in testing your coding knowledge or learning new skills? Stay tuned for an interactive coding quiz!</p>
         <button class="btn" onclick="startQuiz()">Coming Soon!</button>
     </section>
-
     <footer>
         <p>&copy; 2025 King Ducky Productions. All rights reserved.</p>
     </footer>
-
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById("sidebar");
             sidebar.classList.toggle("show");
-
-            // Hide sidebar if clicking outside
-            if (sidebar.classList.contains("show")) {
-                document.addEventListener("click", closeSidebarOnOutsideClick);
-            } else {
-                document.removeEventListener("click", closeSidebarOnOutsideClick);
-            }
         }
-
-        function closeSidebarOnOutsideClick(event) {
-            const sidebar = document.getElementById("sidebar");
-            const toggleBtn = document.querySelector(".toggle-btn");
-
-            if (!sidebar.contains(event.target) && !toggleBtn.contains(event.target)) {
-                sidebar.classList.remove("show");
-                document.removeEventListener("click", closeSidebarOnOutsideClick);
-            }
+        function closeSidebar() {
+            document.getElementById("sidebar").classList.remove("show");
         }
-
         function startQuiz() {
             alert("Quiz coming soon! Stay tuned.");
         }
